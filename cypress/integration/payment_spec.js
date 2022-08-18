@@ -1,3 +1,4 @@
+const { v4: uuidv4 } = require("uuid");
 describe("payment", () => {
   it("user can make payment", () => {
     // Login
@@ -21,6 +22,12 @@ describe("payment", () => {
     cy.findByText(/devon becker/i).click();
 
     // Add amount and note and click pay
+    cy.findByPlaceholderText(/Amount/i).type("5");
+
+    const note = uuidv4();
+    cy.findByPlaceholderText(/Add a note/i).type(note);
+    cy.findByRole("button", { name: /pay/i }).click();
+
     // Return to transactions
     // Go to personal payments
     // Click on payment
