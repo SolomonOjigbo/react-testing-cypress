@@ -16,7 +16,10 @@ describe("payment", () => {
     // Click on New button
     cy.findByRole("button", { name: /new/i }).click();
 
-    // Search for user
+    // Search and select user
+    cy.findByRole("textbox").type("devon becker");
+    cy.findByText(/devon becker/i).click();
+
     // Add amount and note and click pay
     // Return to transactions
     // Go to personal payments
