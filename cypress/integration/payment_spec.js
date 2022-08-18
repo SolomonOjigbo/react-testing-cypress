@@ -29,6 +29,8 @@ describe("payment", () => {
     cy.findByRole("button", { name: /pay/i }).click();
 
     // Return to transactions
+    cy.findByRole("button", { name: /return to transactions/i }).click();
+
     // Go to personal payments
     // Click on payment
     // Verify if payment was made
