@@ -32,7 +32,11 @@ describe("payment", () => {
     cy.findByRole("button", { name: /return to transactions/i }).click();
 
     // Go to personal payments
-    // Click on payment
+    cy.findByRole("tab", { name: /mine/i }).click();
+
+    // Click on payment made
+    cy.findByText(note).click({ force: true });
+
     // Verify if payment was made
     // Verify if payment amount was deducted
   });
