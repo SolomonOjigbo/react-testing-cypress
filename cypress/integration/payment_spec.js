@@ -22,7 +22,8 @@ describe("payment", () => {
     cy.findByText(/devon becker/i).click();
 
     // Add amount and note and click pay
-    cy.findByPlaceholderText(/Amount/i).type("5");
+    const paymentAmount = "5.00";
+    cy.findByPlaceholderText(/Amount/i).type(paymentAmount);
 
     const note = uuidv4();
     cy.findByPlaceholderText(/Add a note/i).type(note);
@@ -38,6 +39,9 @@ describe("payment", () => {
     cy.findByText(note).click({ force: true });
 
     // Verify if payment was made
+    cy.findByText(`-$${paymentAmount}`).should("be.visible");
+    cy.findByText(note).should("be.visible");
+
     // Verify if payment amount was deducted
   });
 });
