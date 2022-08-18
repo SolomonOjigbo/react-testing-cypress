@@ -13,7 +13,9 @@ describe("payment", () => {
       .then(($balance) => (currentBalance = $balance.text()))
       .then((balance) => console.log(balance));
 
-    // Click on pay button
+    // Click on New button
+    cy.findByRole("button", { name: /new/i }).click();
+
     // Search for user
     // Add amount and note and click pay
     // Return to transactions
